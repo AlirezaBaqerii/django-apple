@@ -1,0 +1,22 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block content %}
+<article class="container mt-4">
+  <div class="row row-cols-1 row-cols-sm row-cols-md-3 g-3">
+    {% for p in products %}
+    <div class="col">
+      <div class="card shadow-sm">
+        <img src="{{ p.image.url }}" alt="#" class="bd-placeholder-img card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">{{ p.title }}</h5>
+          <p class="card-text">{{ p.price }}</p>
+          <a href="{{ p.get_absolute_url }}" class="btn btn-primary py-1 px-3" style="border-radius: 50px">Buy</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</article>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends '../base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block style %}
+  <link rel="stylesheet" href="{% static 'user/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<main class="text-center">
+  <section class="form-signin">
+    <form action="." method="POST">
+      {% csrf_token %}
+      <img src="" alt="">
+      <h1 class="h3 mb-3 fw-normal">Log In</h1>
+
+      <div class="form-floating">
+        {{ form|crispy }}
+      </div>
+      <!-- <div class="form-floating">
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Email address</label>
+      </div> -->
+      <button class="w-100 py-1 px-3 btn btn-primary" style="border-radius: 50px" type="submit">Sign up</button>
+    </form>
+    <div class="border-top pt-3">
+      <p class="text-muted">
+        Need An Account? <a href="{% url 'user:signup' %}" class="ml-2">Sign Up Now</a>
+      </p>
+    </div>
+  </section>
+</main>
+
+{% endblock %}
